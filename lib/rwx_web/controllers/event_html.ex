@@ -6,15 +6,7 @@ defmodule RwxWeb.EventHTML do
   def event_list(assigns) do
     # fake data
     ~H"""
-    <%= for event <- [%{
-      name: "Test Event",
-      description: "a test event",
-      oracle: %{
-        name: "Test Oracle",
-        # pubkey: "02deadbeef4decadeadbeef4decadeadbeef4decadeadbeef4decadeadbeef4de",
-        short_pubkey: "02deadbe",
-      }
-    }] do %>
+    <%= for event <- ex_events() do %>
       <.event_card event={event} />
     <% end %>
     """
@@ -41,6 +33,27 @@ defmodule RwxWeb.EventHTML do
     ~H"""
       <.link  href={"/offers/new?event_id=#{@event.name}"}>Create Offer</.link>
     """
+  end
+
+  def ex_events() do
+    [%{
+      name: "Test Event #1",
+      description: "a test event",
+      oracle: %{
+        name: "Test Oracle",
+        # pubkey: "02deadbeef4decadeadbeef4decadeadbeef4decadeadbeef4decadeadbeef4de",
+        short_pubkey: "02deadbe",
+      }
+    },
+    %{
+      name: "Test Event #2",
+      description: "a test event",
+      oracle: %{
+        name: "Test Oracle",
+        # pubkey: "02deadbeef4decadeadbeef4decadeadbeef4decadeadbeef4decadeadbeef4de",
+        short_pubkey: "02deadbe",
+      }
+    }]
   end
 
 end

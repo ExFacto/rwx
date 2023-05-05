@@ -5,15 +5,27 @@ defmodule RwxWeb.ContractHTML do
 
   def contract_list(assigns) do
     ~H"""
-      <.contract_card />
-      <.contract_card />
-      <.contract_card />
+    <%= for contract <- ex_contracts() do %>
+      <.contract_card contract={contract} />
+    <% end %>
     """
   end
 
   def contract_card(assigns) do
     ~H"""
-      <p>contract card</p>
+      <p>contract card <%= @contract.id %></p>
     """
+  end
+
+  def ex_contracts() do
+    [%{
+      id: 1
+    },
+  %{
+      id: 2
+    },
+  %{
+      id: 3
+    }]
   end
 end
