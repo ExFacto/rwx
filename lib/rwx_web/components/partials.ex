@@ -16,10 +16,10 @@ defmodule RwxWeb.Components.Partials do
     ~H"""
     <header>
       <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
-        <div class="flex flex-wrap items-center justify-between max-w-screen-xl mx-auto">
+        <div class="flex items-center flex-wrap items-center justify-between max-w-screen-xl mx-auto">
             <.rwx_logo />
-            <div class="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
-                <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+            <div class="justify-between hidden w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
+                <ul class="flex items-center flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
                     <.nav_item title="Oracles" href={~p"/oracles"} />
                     <.nav_item title="Events" href={~p"/events"} />
                     <.nav_item title="Offers" href={~p"/offers"} />

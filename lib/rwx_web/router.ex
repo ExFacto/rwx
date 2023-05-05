@@ -32,17 +32,21 @@ defmodule RwxWeb.Router do
     post "/offers/create", OfferController, :create
     # a review page allows users to review the offer before creation
     get "/offers/review", OfferController, :review
-    post "/offers/review", OfferController, :review
+    post "/offers/review", OfferController, :submit
 
     # users can accept other users' offers
     get "/offers/accept", OfferController, :accept
-    post "/offers/accept", OfferController, :accept
+    post "/offers/accept", OfferController, :create_accept
     # users can confirm their acceptance of another offer
     get "/offers/confirm", OfferController, :confirm
     # users can see the contracts they've entered
     get "/contracts", ContractController, :index
+
     # users can change settings and view their wallet
     get "/wallet", WalletController, :index
+    post "/wallet/address", WalletController, :new_address
+    post "/wallet/send", WalletController, :send
+
 
     get "/", PageController, :home
   end

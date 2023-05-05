@@ -42,7 +42,9 @@ defmodule RwxWeb.WalletHTML do
 
   def coin(assigns) do
     ~H"""
-    <p><%= @amount %> sats</p><p><%= @outpoint %></p>
+    <div class="inline-flex space-x-4">
+      <p><%= @amount %> sats</p>    <p><%= @outpoint %></p>
+    </div>
     """
   end
 
@@ -52,13 +54,32 @@ defmodule RwxWeb.WalletHTML do
 
   def wallet_receive(assigns) do
     ~H"""
+    <div>
     <p>receive</p>
+    <%# TODO make this a PHX action %>
+    <.form for={%{}} action={~p"/wallet/address"} method="post">
+      <.input type="text" name="label" placeholder="label" value="" />
+      <.button type="submit">New Address</.button>
+    </.form>
+    </div>
     """
   end
 
   def wallet_send(assigns) do
     ~H"""
     <p>send</p>
+    <div>
+      <.form for={%{}} action={~p"/wallet/send"} method="post">
+        <.input type="text" name="address" placeholder="address" value="" required />
+        <%!-- <.error :for=><%= msg %></.error> --%>
+        <.input type="text" name="amount" placeholder="sats" value="" required />
+        <%!-- <.error :for={msg <- @errors}><%= msg %></.error> --%>
+        <.input type="text" name="fee" placeholder="0 sats / vByte" value="" required />
+        <%!-- <.error :for={msg <- @errors}><%= msg %></.error> --%>
+        <.button type="submit">Send</.button>
+      </.form>
+    </div>
+
     """
   end
 end
