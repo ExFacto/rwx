@@ -43,6 +43,8 @@ defmodule RwxWeb.Router do
     get "/contracts", ContractController, :index
     # users can change settings and view their wallet
     get "/wallet", WalletController, :index
+
+    get "/", PageController, :home
   end
 
   # Other scopes may use custom stacks.
