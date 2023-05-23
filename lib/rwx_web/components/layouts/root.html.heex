@@ -12,8 +12,10 @@
     </script>
   </head>
   <body class="bg-gray-900 flex flex-col h-screen justify-between">
-  <Partials.nav />
-    <%= @inner_content %>
+    <Partials.nav />
+    <div class="w-full max-w-screen-xl lg:px-6 mx-auto">
+      <%= @inner_content %>
+    </div>
     <Partials.footer />
   </body>
 </html>

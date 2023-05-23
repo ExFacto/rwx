@@ -13,8 +13,8 @@ defmodule RwxWeb.OfferHTML do
 
   def offer_card(assigns) do
     ~H"""
-    <div style="display: flex; justify-content: space-around; width: 100%; border: 1px solid black;">
-      <div>
+    <div style="display: flex; justify-content: space-around; border: 1px solid black;">
+      <div class="w-11/12 mx-auto" >
         <p><%= @offer.event.name %></p>
         <p><%= @offer.contract_description %></p>
         <%= for {outcome, payout} <- @offer.outcomes_payouts do %>
